@@ -23,20 +23,122 @@
     th, td { padding: 10px 12px; border: 1px solid #dce3ee; text-align: left; vertical-align: top; }
     th { background: #f0f4f9; }
     code { padding: 0.12em 0.32em; border-radius: 5px; background: #eef3f8; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; }
-    hr { margin: 32px 0; border: 0; border-top: 1px solid #e1e7f0; }
-    blockquote { margin: 0 0 20px; padding-left: 14px; border-left: 4px solid #8fb4ff; color: #5f6d80; }
     @media (max-width: 640px) { main { width: min(100% - 20px, 920px); padding: 24px 0 48px; } article { padding: 22px; border-radius: 12px; } nav { justify-content: flex-start; } h1 { font-size: 28px; } table { display: block; overflow-x: auto; } }
   </style>
 </head>
 <body>
   <main>
-    <nav aria-label="Language">
-      <a href="./" aria-current="page">English</a>
-      <span>/</span>
-      <a href="./zh/">中文</a>
-    </nav>
+    <nav aria-label="Language"><a href="./" aria-current="page">English</a><span>/</span><a href="./zh/">中文</a></nav>
     <article>
-
+<h1>TabCtrl Privacy Policy</h1>
+<p><strong>Last updated:</strong> April 27, 2026<br><strong>Applies to:</strong> TabCtrl Chrome / Edge extension, version 1.0.0 and later<br><strong>Extension ID:</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
+<h2>1. Summary</h2>
+<p>TabCtrl is an agentic browser extension that runs on a <strong>Bring-Your-Own-Key (BYOK)</strong> model. The TabCtrl developer <strong>does not operate any backend service</strong> and <strong>does not receive, store, or process any of your data</strong> on its own infrastructure.</p>
+<p>In short:</p>
+<ul>
+<li>TabCtrl does not have a server that could see your prompts, pages, screenshots, or API keys.</li>
+<li>All settings, conversations, and recorded teaching cases are stored only in your own browser.</li>
+<li>When you give the agent a task, the extension talks <strong>directly</strong> from your browser to the model endpoint(s) <strong>you</strong> configured. That provider is governed by <strong>its own</strong> privacy policy, not this one.</li>
+</ul>
+<h2>2. Data the Developer Collects</h2>
+<p><strong>None.</strong></p>
+<p>TabCtrl does <strong>not</strong>:</p>
+<ul>
+<li>Send telemetry, analytics, crash reports, or usage statistics to the developer.</li>
+<li>Include third-party analytics, advertising, or tracking SDKs (Google Analytics, Mixpanel, Sentry, etc.).</li>
+<li>Maintain any backend that receives user data.</li>
+<li>Read or transmit your browsing history.</li>
+<li>Use your data to train any model.</li>
+<li>Sell or share user data — there is no user data on the developer side to sell or share.</li>
+</ul>
+<h2>3. Data Stored Locally on Your Device</h2>
+<p>The following data is kept only on your computer through Chrome&#39;s <code>storage</code> API. It never leaves your device unless <strong>you</strong> explicitly send it to a model you configured.</p>
+<table>
+<thead><tr><th>Data</th><th>Storage location</th><th>Lifetime</th></tr></thead>
+<tbody>
+<tr><td>Model configurations and API keys</td><td><code>chrome.storage.local</code></td><td>Until you delete the entry or uninstall the extension</td></tr>
+<tr><td>App settings and site policies</td><td><code>chrome.storage.local</code></td><td>Until you change them or uninstall</td></tr>
+<tr><td>Teaching cases you record</td><td><code>chrome.storage.local</code></td><td>Until you delete them</td></tr>
+<tr><td>Imported Skills</td><td><code>chrome.storage.local</code></td><td>Until you remove them</td></tr>
+<tr><td>Current conversation, plan state, and recent task history</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes</td></tr>
+<tr><td>Page snapshots, screenshots, vision-cache entries</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes; subject to LRU caps</td></tr>
+<tr><td>Approval / audit decisions for the current session</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes</td></tr>
+</tbody></table>
+<p>Uninstalling the extension removes all of the above.</p>
+<h2>4. Data Sent to Third Parties (Your Configured Model Providers)</h2>
+<p>When you submit a task, TabCtrl makes HTTPS requests <strong>directly</strong> from your browser to the model endpoint(s) you set up in <strong>Settings → Models</strong>. Depending on the task, those requests may contain:</p>
+<ul>
+<li>The task prompt you typed in the side panel.</li>
+<li>Page content extracted from the active tab via the accessibility tree (text, roles, element references, frame structure).</li>
+<li>Screenshots of the active tab, when a vision-capable model is used.</li>
+<li>Metadata (title, URL) of tabs the agent reads or operates on.</li>
+<li>Conversation history within the current task and any context summaries TabCtrl produced.</li>
+<li>Tool-call results.</li>
+<li>Your API key, sent in the standard <code>Authorization</code> header understood by that provider.</li>
+</ul>
+<p>These requests go to whatever endpoint <strong>you</strong> configured. Common examples include:</p>
+<ul>
+<li>The official Anthropic API (<code>api.anthropic.com</code>)</li>
+<li>The official OpenAI API (<code>api.openai.com</code>)</li>
+<li>DeepSeek, Moonshot, Qwen / DashScope, OpenRouter, and other OpenAI-compatible services</li>
+<li>An enterprise inference gateway or self-hosted model on your intranet</li>
+<li>A local model server such as vLLM, Ollama, or LM Studio</li>
+</ul>
+<p><strong>TabCtrl does not choose the provider, does not proxy the request, and does not log it.</strong> Whatever data ends up at that endpoint is governed by <strong>that provider&#39;s</strong> privacy policy and data-retention rules. You are responsible for choosing a provider you trust for the data you are sending.</p>
+<p>In enterprise self-hosted scenarios where the configured endpoint is on your intranet, the request never leaves your corporate network.</p>
+<h2>5. Permissions and Why TabCtrl Requests Them</h2>
+<table>
+<thead><tr><th>Permission</th><th>Why it is needed</th></tr></thead>
+<tbody>
+<tr><td><code>&lt;all_urls&gt;</code> host permission, <code>activeTab</code>, <code>scripting</code></td><td>Read and act on the page you are working on, including across frames</td></tr>
+<tr><td><code>tabs</code>, <code>tabGroups</code>, <code>webNavigation</code></td><td>Manage and observe tabs across multi-step tasks; enforce protocol and URL guards</td></tr>
+<tr><td><code>storage</code>, <code>unlimitedStorage</code></td><td>Persist settings, model configs, skills, teaching cases, and session state locally</td></tr>
+<tr><td><code>sidePanel</code></td><td>Render the side-panel UI</td></tr>
+<tr><td><code>alarms</code></td><td>Keep the service worker awake during long tasks</td></tr>
+<tr><td><code>notifications</code></td><td>Notify you when a long task completes</td></tr>
+<tr><td><code>offscreen</code></td><td>Play audio notifications</td></tr>
+<tr><td><code>debugger</code></td><td>Perform precise element interactions on pages where ordinary scripting is insufficient (e.g. complex editors, OS-level events)</td></tr>
+<tr><td><code>nativeMessaging</code></td><td>Optional. Only used when you explicitly enable Lab Beta and install the native bridge to call allow-listed local CLI tools</td></tr>
+</tbody></table>
+<p><code>&lt;all_urls&gt;</code> and <code>debugger</code> are broad capabilities. TabCtrl only uses them as part of an agent loop <strong>you</strong> started in the side panel. It does not run on pages in the background or read pages you have not asked it to act on.</p>
+<h2>6. Native Messaging (Optional, Disabled by Default)</h2>
+<p>The Lab Beta is <strong>disabled by default</strong>. If you enable it and install the native messaging host, TabCtrl can call locally pre-installed command-line tools that you have explicitly added to <code>bridge.config.json</code>. Constraints:</p>
+<ul>
+<li>Only command names listed in your local <code>bridge.config.json</code> allowlist are accepted.</li>
+<li>Each command&#39;s executable path must match the configuration exactly.</li>
+<li>The agent cannot inject environment variables, choose a working directory, or execute arbitrary shell commands.</li>
+<li>Each native call requires your in-app approval.</li>
+<li>All output stays on your machine. The developer cannot see it.</li>
+</ul>
+<p>Uninstalling or disabling Lab Beta stops all native messaging activity.</p>
+<h2>7. Sensitive and Restricted Sites</h2>
+<p>To protect users, TabCtrl applies the following hard-coded safeguards regardless of user settings:</p>
+<ul>
+<li><strong>Hard-blocked</strong>: Identity-provider login pages such as <code>accounts.google.com</code>, <code>login.microsoftonline.com</code>, <code>login.live.com</code>, <code>appleid.apple.com</code>. The agent will not read or operate on these pages.</li>
+<li><strong>Always require explicit per-action approval</strong>: Major payment, banking, brokerage, and cryptocurrency-exchange domains.</li>
+<li><strong>Refused entirely</strong>: Non-<code>http/https</code> URLs (<code>javascript:</code>, <code>data:</code>, <code>blob:</code>, <code>file:</code>, <code>chrome:</code>, <code>chrome-extension:</code>, <code>about:</code>, etc.).</li>
+</ul>
+<h2>8. Children</h2>
+<p>TabCtrl is not directed at children under 13 and does not knowingly collect any data from children.</p>
+<h2>9. Security</h2>
+<ul>
+<li>API keys and other settings are stored using Chrome&#39;s extension storage and are subject to the same isolation as the rest of your browser profile.</li>
+<li>The extension&#39;s own pages run under a strict Content Security Policy that disallows remote script loading and <code>unsafe-eval</code> / <code>unsafe-inline</code>.</li>
+<li>TabCtrl is built on Manifest V3, which forbids loading remote code at runtime.</li>
+<li>The extension does not transmit your API keys to anyone other than the model endpoint you configured.</li>
+</ul>
+<p>You are responsible for protecting your own device and the API keys stored on it. If you believe a key has been exposed, rotate it through your provider&#39;s dashboard.</p>
+<h2>10. Your Choices</h2>
+<ul>
+<li><strong>Stop sending data to a provider</strong>: remove or disable the model configuration in Settings → Models.</li>
+<li><strong>Delete the conversation</strong>: start a new conversation in the side panel; current-session data is cleared.</li>
+<li><strong>Delete teaching cases or skills</strong>: remove them in Settings.</li>
+<li><strong>Wipe everything</strong>: uninstall the extension. All locally stored data is removed by Chrome.</li>
+</ul>
+<h2>11. Changes to This Policy</h2>
+<p>If this policy materially changes, the updated version will be published at the same URL listed in the Chrome Web Store listing, with an updated &quot;Last updated&quot; date above.</p>
+<h2>12. Contact</h2>
+<p>For privacy-related questions about TabCtrl itself, contact the developer at <strong>dyyxml@gmail.com</strong>, or open an issue on the project repository.</p>
     </article>
   </main>
 </body>
