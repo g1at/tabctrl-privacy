@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TabCtrl 隐私政策</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f8fb; line-height: 1.65; }
+    main { box-sizing: border-box; width: min(100% - 32px, 920px); margin: 0 auto; padding: 48px 0 72px; }
+    article { padding: 36px; border: 1px solid #e4e9f2; border-radius: 16px; background: #fff; box-shadow: 0 18px 50px rgba(23, 32, 51, 0.08); }
+    nav { display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px; color: #5f6d80; font-size: 14px; }
+    nav a { color: #2563eb; text-decoration: none; }
+    nav a[aria-current="page"] { color: #172033; font-weight: 700; }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { margin: 0 0 18px; font-size: 34px; }
+    h2 { margin: 34px 0 12px; font-size: 22px; }
+    h3 { margin: 24px 0 10px; font-size: 18px; }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 18px 22px; padding: 0; }
+    li { margin: 4px 0; }
+    table { width: 100%; margin: 18px 0 24px; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px 12px; border: 1px solid #dce3ee; text-align: left; vertical-align: top; }
+    th { background: #f0f4f9; }
+    code { padding: 0.12em 0.32em; border-radius: 5px; background: #eef3f8; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; }
+    hr { margin: 32px 0; border: 0; border-top: 1px solid #e1e7f0; }
+    blockquote { margin: 0 0 20px; padding-left: 14px; border-left: 4px solid #8fb4ff; color: #5f6d80; }
+    @media (max-width: 640px) { main { width: min(100% - 20px, 920px); padding: 24px 0 48px; } article { padding: 22px; border-radius: 12px; } nav { justify-content: flex-start; } h1 { font-size: 28px; } table { display: block; overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Language">
+      <a href="../">English</a>
+      <span>/</span>
+      <a href="./" aria-current="page">中文</a>
+    </nav>
+    <article>
+<h1>TabCtrl 隐私政策（中文版） TabCtrl Privacy Policy</h1>
+<p><strong>Last updated:</strong> April 27, 2026 <strong>Applies to:</strong> TabCtrl Chrome / Edge extension, version 1.0.0 and later <strong>Extension ID:</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
+<blockquote>A 中文版本 follows the English text below.</blockquote>
+<hr>
+<h2>1. Summary</h2>
+<p>TabCtrl is an agentic browser extension that runs on a <strong>Bring-Your-Own-Key (BYOK)</strong> model. The TabCtrl developer <strong>does not operate any backend service</strong> and <strong>does not receive, store, or process any of your data</strong> on its own infrastructure.</p>
+<p>In short:</p>
+<ul><li>TabCtrl does not have a server that could see your prompts, pages, screenshots, or API keys.</li><li>All settings, conversations, and recorded teaching cases are stored only in your own browser.</li><li>When you give the agent a task, the extension talks <strong>directly</strong> from your browser to the model endpoint(s) <strong>you</strong> configured. That provider is governed by <strong>its own</strong> privacy policy, not this one.</li></ul>
+<h2>2. Data the Developer Collects</h2>
+<p><strong>None.</strong></p>
+<p>TabCtrl does <strong>not</strong>:</p>
+<ul><li>Send telemetry, analytics, crash reports, or usage statistics to the developer.</li><li>Include third-party analytics, advertising, or tracking SDKs (Google Analytics, Mixpanel, Sentry, etc.).</li><li>Maintain any backend that receives user data.</li><li>Read or transmit your browsing history.</li><li>Use your data to train any model.</li><li>Sell or share user data — there is no user data on the developer side to sell or share.</li></ul>
+<h2>3. Data Stored Locally on Your Device</h2>
+<p>The following data is kept only on your computer through Chrome&#39;s <code>storage</code> API. It never leaves your device unless <strong>you</strong> explicitly send it to a model you configured.</p>
+<table><thead><tr><th>Data</th><th>Storage location</th><th>Lifetime</th></tr></thead><tbody><tr><td>Model configurations and API keys</td><td><code>chrome.storage.local</code></td><td>Until you delete the entry or uninstall the extension</td></tr><tr><td>App settings and site policies</td><td><code>chrome.storage.local</code></td><td>Until you change them or uninstall</td></tr><tr><td>Teaching cases you record</td><td><code>chrome.storage.local</code></td><td>Until you delete them</td></tr><tr><td>Imported Skills</td><td><code>chrome.storage.local</code></td><td>Until you remove them</td></tr><tr><td>Current conversation, plan state, and recent task history</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes</td></tr><tr><td>Page snapshots, screenshots, vision-cache entries</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes; subject to LRU caps</td></tr><tr><td>Approval / audit decisions for the current session</td><td><code>chrome.storage.session</code></td><td>Cleared when the browser closes</td></tr></tbody></table>
+<p>Uninstalling the extension removes all of the above.</p>
+<h2>4. Data Sent to Third Parties (Your Configured Model Providers)</h2>
+<p>When you submit a task, TabCtrl makes HTTPS requests <strong>directly</strong> from your browser to the model endpoint(s) you set up in <strong>Settings → Models</strong>. Depending on the task, those requests may contain:</p>
+<ul><li>The task prompt you typed in the side panel.</li><li>Page content extracted from the active tab via the accessibility tree (text, roles, element references, frame structure).</li><li>Screenshots of the active tab, when a vision-capable model is used.</li><li>Metadata (title, URL) of tabs the agent reads or operates on.</li><li>Conversation history within the current task and any context summaries TabCtrl produced.</li><li>Tool-call results.</li><li>Your API key, sent in the standard <code>Authorization</code> header understood by that provider.</li></ul>
+<p>These requests go to whatever endpoint <strong>you</strong> configured. Common examples include:</p>
+<ul><li>The official Anthropic API (<code>api.anthropic.com</code>)</li><li>The official OpenAI API (<code>api.openai.com</code>)</li><li>DeepSeek, Moonshot, Qwen / DashScope, OpenRouter, and other OpenAI-compatible services</li><li>An enterprise inference gateway or self-hosted model on your intranet</li><li>A local model server such as vLLM, Ollama, or LM Studio</li></ul>
+<p><strong>TabCtrl does not choose the provider, does not proxy the request, and does not log it.</strong> Whatever data ends up at that endpoint is governed by <strong>that provider&#39;s</strong> privacy policy and data-retention rules. You are responsible for choosing a provider you trust for the data you are sending.</p>
+<p>In enterprise self-hosted scenarios where the configured endpoint is on your intranet, the request never leaves your corporate network.</p>
+<h2>5. Permissions and Why TabCtrl Requests Them</h2>
+<table><thead><tr><th>Permission</th><th>Why it is needed</th></tr></thead><tbody><tr><td><code>&lt;all_urls&gt;</code> host permission, <code>activeTab</code>, <code>scripting</code></td><td>Read and act on the page you are working on, including across frames</td></tr><tr><td><code>tabs</code>, <code>tabGroups</code>, <code>webNavigation</code></td><td>Manage and observe tabs across multi-step tasks; enforce protocol and URL guards</td></tr><tr><td><code>storage</code>, <code>unlimitedStorage</code></td><td>Persist settings, model configs, skills, teaching cases, and session state locally</td></tr><tr><td><code>sidePanel</code></td><td>Render the side-panel UI</td></tr><tr><td><code>alarms</code></td><td>Keep the service worker awake during long tasks</td></tr><tr><td><code>notifications</code></td><td>Notify you when a long task completes</td></tr><tr><td><code>offscreen</code></td><td>Play audio notifications</td></tr><tr><td><code>debugger</code></td><td>Perform precise element interactions on pages where ordinary scripting is insufficient (e.g. complex editors, OS-level events)</td></tr><tr><td><code>nativeMessaging</code></td><td>Optional. Only used when you explicitly enable Lab Beta and install the native bridge to call allow-listed local CLI tools</td></tr></tbody></table>
+<p><code>&lt;all_urls&gt;</code> and <code>debugger</code> are broad capabilities. TabCtrl only uses them as part of an agent loop <strong>you</strong> started in the side panel. It does not run on pages in the background or read pages you have not asked it to act on.</p>
+<h2>6. Native Messaging (Optional, Disabled by Default)</h2>
+<p>The Lab Beta is <strong>disabled by default</strong>. If you enable it and install the native messaging host, TabCtrl can call locally pre-installed command-line tools that you have explicitly added to <code>bridge.config.json</code>. Constraints:</p>
+<ul><li>Only command names listed in your local <code>bridge.config.json</code> allowlist are accepted.</li><li>Each command&#39;s executable path must match the configuration exactly.</li><li>The agent cannot inject environment variables, choose a working directory, or execute arbitrary shell commands.</li><li>Each native call requires your in-app approval.</li><li>All output stays on your machine. The developer cannot see it.</li></ul>
+<p>Uninstalling or disabling Lab Beta stops all native messaging activity.</p>
+<h2>7. Sensitive and Restricted Sites</h2>
+<p>To protect users, TabCtrl applies the following hard-coded safeguards regardless of user settings:</p>
+<ul><li><strong>Hard-blocked</strong>: Identity-provider login pages such as <code>accounts.google.com</code>, <code>login.microsoftonline.com</code>, <code>login.live.com</code>, <code>appleid.apple.com</code>. The agent will not read or operate on these pages.</li><li><strong>Always require explicit per-action approval</strong>: Major payment, banking, brokerage, and cryptocurrency-exchange domains.</li><li><strong>Refused entirely</strong>: Non-<code>http/https</code> URLs (<code>javascript:</code>, <code>data:</code>, <code>blob:</code>, <code>file:</code>, <code>chrome:</code>, <code>chrome-extension:</code>, <code>about:</code>, etc.).</li></ul>
+<h2>8. Children</h2>
+<p>TabCtrl is not directed at children under 13 and does not knowingly collect any data from children.</p>
+<h2>9. Security</h2>
+<ul><li>API keys and other settings are stored using Chrome&#39;s extension storage and are subject to the same isolation as the rest of your browser profile.</li><li>The extension&#39;s own pages run under a strict Content Security Policy that disallows remote script loading and <code>unsafe-eval</code> / <code>unsafe-inline</code>.</li><li>TabCtrl is built on Manifest V3, which forbids loading remote code at runtime.</li><li>The extension does not transmit your API keys to anyone other than the model endpoint you configured.</li></ul>
+<p>You are responsible for protecting your own device and the API keys stored on it. If you believe a key has been exposed, rotate it through your provider&#39;s dashboard.</p>
+<h2>10. Your Choices</h2>
+<ul><li><strong>Stop sending data to a provider</strong>: remove or disable the model configuration in Settings → Models.</li><li><strong>Delete the conversation</strong>: start a new conversation in the side panel; current-session data is cleared.</li><li><strong>Delete teaching cases or skills</strong>: remove them in Settings.</li><li><strong>Wipe everything</strong>: uninstall the extension. All locally stored data is removed by Chrome.</li></ul>
+<h2>11. Changes to This Policy</h2>
+<p>If this policy materially changes, the updated version will be published at the same URL listed in the Chrome Web Store listing, with an updated &quot;Last updated&quot; date above.</p>
+<h2>12. Contact</h2>
+<p>For privacy-related questions about TabCtrl itself, contact the developer at <strong>dyyxml@gmail.com</strong>, or open an issue on the project repository.</p>
+<hr>
+<h1>TabCtrl 隐私政策（中文版）</h1>
+<p><strong>最后更新：</strong> 2026 年 4 月 27 日 <strong>适用范围：</strong> TabCtrl Chrome / Edge 扩展 1.0.0 及后续版本 <strong>扩展 ID：</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
+<h2>1. 摘要</h2>
+<p>TabCtrl 是一款基于 <strong>BYOK（Bring Your Own Key，自带 API Key）</strong> 模型的代理式浏览器扩展。TabCtrl 开发方<strong>不运营任何后端服务</strong>，<strong>不接收、不存储、也不处理任何用户数据</strong>。</p>
+<p>也就是说：</p>
+<ul><li>开发方没有任何服务器能看到你的提问、页面内容、截图或 API Key。</li><li>所有设置、对话、教学案例只保存在你自己的浏览器中。</li><li>当你下达任务时，扩展会<strong>直接</strong>从你的浏览器向你自己配置的模型端点发送请求。该模型提供商遵循其<strong>自身</strong>的隐私政策，与本政策无关。</li></ul>
+<h2>2. 开发方收集的数据</h2>
+<p><strong>无。</strong></p>
+<p>TabCtrl <strong>不会</strong>：</p>
+<ul><li>向开发方发送遥测、统计、崩溃报告或使用数据；</li><li>集成任何第三方分析、广告或追踪 SDK（Google Analytics、Mixpanel、Sentry 等）；</li><li>运营任何接收用户数据的后端；</li><li>读取或上报你的浏览历史；</li><li>使用你的数据训练任何模型；</li><li>出售或共享用户数据——开发方侧根本没有用户数据。</li></ul>
+<h2>3. 仅存储于本机的数据</h2>
+<p>以下数据仅通过 Chrome <code>storage</code> API 存储在你自己的设备上。除非<strong>你</strong>主动让扩展将其发送给你配置的模型，它不会离开你的设备：</p>
+<table><thead><tr><th>数据</th><th>存储位置</th><th>生命周期</th></tr></thead><tbody><tr><td>模型配置与 API Key</td><td><code>chrome.storage.local</code></td><td>直到你删除条目或卸载扩展</td></tr><tr><td>应用设置与站点策略</td><td><code>chrome.storage.local</code></td><td>直到你修改或卸载</td></tr><tr><td>你录制的教学案例</td><td><code>chrome.storage.local</code></td><td>直到你删除</td></tr><tr><td>已导入的 Skill</td><td><code>chrome.storage.local</code></td><td>直到你移除</td></tr><tr><td>当前对话、计划状态、最近任务历史</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr><tr><td>页面快照、截图、视觉问答缓存</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空，受 LRU 上限约束</td></tr><tr><td>当前会话内的审批 / 审计决策</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr></tbody></table>
+<p>卸载扩展会清除以上全部数据。</p>
+<h2>4. 发送给第三方（你配置的模型提供商）的数据</h2>
+<p>当你提交任务时，TabCtrl 会<strong>直接</strong>从你的浏览器向你在 <strong>Settings → Models</strong> 中配置的模型端点发起 HTTPS 请求。根据任务不同，请求可能包含：</p>
+<ul><li>你在侧边栏输入的任务文本；</li><li>由可访问性树提取的当前标签页内容（文本、角色、元素引用、frame 结构）；</li><li>当使用具备视觉能力的模型时，当前标签页的截图；</li><li>代理读取或操作的标签页元数据（标题、URL）；</li><li>当前任务内的对话历史以及 TabCtrl 生成的上下文摘要；</li><li>工具调用结果；</li><li>你的 API Key（通过该模型提供商规定的标准 <code>Authorization</code> 头部携带）。</li></ul>
+<p>这些请求会发往<strong>你自己配置</strong>的端点，常见示例包括：</p>
+<ul><li>Anthropic 官方 API（<code>api.anthropic.com</code>）；</li><li>OpenAI 官方 API（<code>api.openai.com</code>）；</li><li>DeepSeek、Moonshot、Qwen / DashScope、OpenRouter 等 OpenAI 兼容服务；</li><li>企业内网推理网关或私有化部署的模型；</li><li>本机运行的模型服务，如 vLLM、Ollama、LM Studio。</li></ul>
+<p><strong>TabCtrl 不会代你选择服务商、不会代理这些请求，也不会记录它们。</strong> 这些数据到达端点之后的留存与处理，由<strong>该模型提供商</strong>的隐私政策决定。请你为发送的数据自行选择可信任的提供商。</p>
+<p>在企业内网自托管场景下，只要端点位于内网地址，请求<strong>不会离开企业网络</strong>。</p>
+<h2>5. 权限说明</h2>
+<table><thead><tr><th>权限</th><th>用途</th></tr></thead><tbody><tr><td><code>&lt;all_urls&gt;</code> 主机权限、<code>activeTab</code>、<code>scripting</code></td><td>读取并操作你正在处理的页面，包括跨 frame</td></tr><tr><td><code>tabs</code>、<code>tabGroups</code>、<code>webNavigation</code></td><td>多步骤任务中的标签页管理与导航；执行协议与 URL 校验</td></tr><tr><td><code>storage</code>、<code>unlimitedStorage</code></td><td>在本机持久化设置、模型、Skill、教学案例与会话状态</td></tr><tr><td><code>sidePanel</code></td><td>提供侧边栏 UI</td></tr><tr><td><code>alarms</code></td><td>长任务期间维持 Service Worker 存活</td></tr><tr><td><code>notifications</code></td><td>长任务完成时通知</td></tr><tr><td><code>offscreen</code></td><td>播放提示音</td></tr><tr><td><code>debugger</code></td><td>在普通脚本无法精确触达的页面（复杂编辑器、OS 级事件等）执行精确元素操作</td></tr><tr><td><code>nativeMessaging</code></td><td>可选；仅在你显式启用实验室 Beta 并安装本机桥接后用于调用白名单内的本地 CLI</td></tr></tbody></table>
+<p><code>&lt;all_urls&gt;</code> 与 <code>debugger</code> 是较强的能力。TabCtrl 只在你于侧边栏发起代理任务时使用它们；不会在后台主动读取你未要求处理的页面。</p>
+<h2>6. Native Messaging（可选，默认禁用）</h2>
+<p>实验室 Beta <strong>默认关闭</strong>。仅当你启用并安装本机消息主机后，TabCtrl 才可调用你已加入 <code>bridge.config.json</code> 白名单的本地命令行工具。约束如下：</p>
+<ul><li>仅接受本地 <code>bridge.config.json</code> 白名单中明确列出的命令名称；</li><li>每条命令对应的可执行文件路径必须与配置精确匹配；</li><li>代理无法注入环境变量、指定工作目录或执行任意 shell 命令；</li><li>每次本地调用都需在扩展中获得你的批准；</li><li>所有输出仅留在你的本机，开发方无法看到。</li></ul>
+<p>卸载扩展或关闭实验室 Beta 即停止所有本机消息活动。</p>
+<h2>7. 敏感与受限站点</h2>
+<p>无论用户如何配置，TabCtrl 都会执行以下硬性约束：</p>
+<ul><li><strong>完全屏蔽</strong>：身份提供方登录页，例如 <code>accounts.google.com</code>、<code>login.microsoftonline.com</code>、<code>login.live.com</code>、<code>appleid.apple.com</code>；代理不会读取或操作这些页面；</li><li><strong>每次操作强制审批</strong>：主流支付、银行、券商、加密货币交易所等域名；</li><li><strong>直接拒绝</strong>：所有非 <code>http/https</code> 的 URL（<code>javascript:</code>、<code>data:</code>、<code>blob:</code>、<code>file:</code>、<code>chrome:</code>、<code>chrome-extension:</code>、<code>about:</code> 等）。</li></ul>
+<h2>8. 儿童</h2>
+<p>TabCtrl 不面向 13 岁以下儿童，也不会有意收集儿童数据。</p>
+<h2>9. 安全</h2>
+<ul><li>API Key 与其他设置通过 Chrome 扩展存储保存，与你的浏览器配置享有相同的隔离机制；</li><li>扩展自身页面遵循严格的 CSP，禁止远程脚本加载与 <code>unsafe-eval</code> / <code>unsafe-inline</code>；</li><li>扩展基于 Manifest V3 构建，运行时禁止加载远程代码；</li><li>除你配置的模型端点外，扩展不会将你的 API Key 发送给任何其他方。</li></ul>
+<p>你需要自行保护本机设备及其上保存的 API Key。如怀疑 Key 已泄露，请通过对应模型提供商的控制台轮换 Key。</p>
+<h2>10. 你的选择</h2>
+<ul><li><strong>停止向某个提供商发送数据</strong>：在 Settings → Models 中移除或禁用对应模型配置；</li><li><strong>删除当前对话</strong>：在侧边栏新建对话，会话级数据将被清空；</li><li><strong>删除教学案例或 Skill</strong>：在 Settings 中移除；</li><li><strong>彻底清除</strong>：卸载扩展，Chrome 将自动清除所有本地数据。</li></ul>
+<h2>11. 政策变更</h2>
+<p>如本政策发生重要变更，更新版本会发布在 Chrome 网上应用店列表所引用的同一 URL，并更新顶部的&quot;最后更新&quot;日期。</p>
+<h2>12. 联系方式</h2>
+<p>如有与 TabCtrl 相关的隐私问题，可发送邮件至 <strong>dyyxml@gmail.com</strong> 联系开发方，或在项目仓库中提交 issue。</p>
+    </article>
+  </main>
+</body>
+</html>
