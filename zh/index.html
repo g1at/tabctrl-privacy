@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TabCtrl 隐私政策</title>
+  <title>TabCtrl ????</title>
   <style>
     :root { color-scheme: light; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f8fb; line-height: 1.65; }
@@ -28,16 +28,16 @@
 </head>
 <body>
   <main>
-    <nav aria-label="Language"><a href="../">English</a><span>/</span><a href="./" aria-current="page">中文</a></nav>
+    <nav aria-label="Language"><a href="../">English</a><span>/</span><a href="./" aria-current="page">??</a></nav>
     <article>
 <h1>TabCtrl 隐私政策（中文版）</h1>
-<p><strong>最后更新：</strong> 2026 年 4 月 27 日<br><strong>适用范围：</strong> TabCtrl Chrome / Edge 扩展 1.0.0 及后续版本<br><strong>扩展 ID：</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
+<p><strong>最后更新：</strong> 2026 年 5 月 1 日<br><strong>适用范围：</strong> TabCtrl Chrome / Edge 扩展 1.0.0 及后续版本<br><strong>扩展 ID：</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
 <h2>1. 摘要</h2>
 <p>TabCtrl 是一款基于 <strong>BYOK（Bring Your Own Key，自带 API Key）</strong> 模型的代理式浏览器扩展。TabCtrl 开发方<strong>不运营任何后端服务</strong>，<strong>不接收、不存储、也不处理任何用户数据</strong>。</p>
 <p>也就是说：</p>
 <ul>
 <li>开发方没有任何服务器能看到你的提问、页面内容、截图或 API Key。</li>
-<li>所有设置、对话、教学案例只保存在你自己的浏览器中。</li>
+<li>所有设置、对话、教学案例和执行记忆记录只保存在你自己的浏览器中。</li>
 <li>当你下达任务时，扩展会<strong>直接</strong>从你的浏览器向你自己配置的模型端点发送请求。该模型提供商遵循其<strong>自身</strong>的隐私政策，与本政策无关。</li>
 </ul>
 <h2>2. 开发方收集的数据</h2>
@@ -52,7 +52,7 @@
 <li>出售或共享用户数据——开发方侧根本没有用户数据。</li>
 </ul>
 <h2>3. 仅存储于本机的数据</h2>
-<p>以下数据仅通过 Chrome <code>storage</code> API 存储在你自己的设备上。除非<strong>你</strong>主动让扩展将其发送给你配置的模型，它不会离开你的设备：</p>
+<p>以下数据仅通过 Chrome <code>storage</code> API 或本地 IndexedDB 存储在你自己的设备上。除非<strong>你</strong>启用会向自配模型发送简短提示的功能，它不会离开你的设备：</p>
 <table>
 <thead><tr><th>数据</th><th>存储位置</th><th>生命周期</th></tr></thead>
 <tbody>
@@ -60,6 +60,7 @@
 <tr><td>应用设置与站点策略</td><td><code>chrome.storage.local</code></td><td>直到你修改或卸载</td></tr>
 <tr><td>你录制的教学案例</td><td><code>chrome.storage.local</code></td><td>直到你删除</td></tr>
 <tr><td>已导入的 Skill</td><td><code>chrome.storage.local</code></td><td>直到你移除</td></tr>
+<tr><td>执行记忆记录</td><td>本地 IndexedDB</td><td>默认关闭；直到你清空、卸载，或本地软上限自动裁剪</td></tr>
 <tr><td>当前对话、计划状态、最近任务历史</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr>
 <tr><td>页面快照、截图、视觉问答缓存</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空，受 LRU 上限约束</td></tr>
 <tr><td>当前会话内的审批 / 审计决策</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr>
@@ -73,6 +74,7 @@
 <li>当使用具备视觉能力的模型时，当前标签页的截图；</li>
 <li>代理读取或操作的标签页元数据（标题、URL）；</li>
 <li>当前任务内的对话历史以及 TabCtrl 生成的上下文摘要；</li>
+<li>简短执行记忆提示（仅当你在 Settings → Lab 启用执行记忆时）；</li>
 <li>工具调用结果；</li>
 <li>你的 API Key（通过该模型提供商规定的标准 <code>Authorization</code> 头部携带）。</li>
 </ul>
