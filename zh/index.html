@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TabCtrl 隐私政策">
   <title>TabCtrl 隐私政策</title>
   <style>
     :root { color-scheme: light; }
@@ -23,21 +24,24 @@
     th, td { padding: 10px 12px; border: 1px solid #dce3ee; text-align: left; vertical-align: top; }
     th { background: #f0f4f9; }
     code { padding: 0.12em 0.32em; border-radius: 5px; background: #eef3f8; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.92em; }
+    hr { margin: 28px 0; border: 0; border-top: 1px solid #dce3ee; }
+    blockquote { margin: 0 0 20px; padding: 12px 16px; border-left: 4px solid #93b4ef; background: #f5f8fd; color: #46556c; }
+    blockquote p { margin: 0; }
     @media (max-width: 640px) { main { width: min(100% - 20px, 920px); padding: 24px 0 48px; } article { padding: 22px; border-radius: 12px; } nav { justify-content: flex-start; } h1 { font-size: 28px; } table { display: block; overflow-x: auto; } }
   </style>
 </head>
 <body>
   <main>
-    <nav aria-label="Language"><a href="../">English</a><span>/</span><a href="./" aria-current="page">中文</a></nav>
+    <nav aria-label="语言"><a href="../">English</a><span>/</span><a href="./" aria-current="page">中文</a></nav>
     <article>
 <h1>TabCtrl 隐私政策（中文版）</h1>
-<p><strong>最后更新：</strong> 2026 年 5 月 1 日<br><strong>适用范围：</strong> TabCtrl Chrome / Edge 扩展 1.0.0 及后续版本<br><strong>扩展 ID：</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
+<p><strong>最后更新：</strong> 2026 年 8 月 22 日<br><strong>适用范围：</strong> TabCtrl Chrome / Edge 扩展 1.0.0 及后续版本<br><strong>扩展 ID：</strong> <code>bniefocpdldneagigjlhbllgdjohmeie</code></p>
 <h2>1. 摘要</h2>
 <p>TabCtrl 是一款基于 <strong>BYOK（Bring Your Own Key，自带 API Key）</strong> 模型的代理式浏览器扩展。TabCtrl 开发方<strong>不运营任何后端服务</strong>，<strong>不接收、不存储、也不处理任何用户数据</strong>。</p>
 <p>也就是说：</p>
 <ul>
 <li>开发方没有任何服务器能看到你的提问、页面内容、截图或 API Key。</li>
-<li>所有设置、对话、教学案例和执行记忆记录只保存在你自己的浏览器中。</li>
+<li>设置、对话、教学案例、定时任务、运行历史与任务队列、最近任务 prompt 和执行记忆记录保存在你自己的浏览器中；执行任务时，相关内容仍可能按第 4 节所述直接发送到你配置的模型端点。</li>
 <li>当你下达任务时，扩展会<strong>直接</strong>从你的浏览器向你自己配置的模型端点发送请求。该模型提供商遵循其<strong>自身</strong>的隐私政策，与本政策无关。</li>
 </ul>
 <h2>2. 开发方收集的数据</h2>
@@ -52,7 +56,7 @@
 <li>出售或共享用户数据——开发方侧根本没有用户数据。</li>
 </ul>
 <h2>3. 仅存储于本机的数据</h2>
-<p>以下数据仅通过 Chrome <code>storage</code> API 或本地 IndexedDB 存储在你自己的设备上。除非<strong>你</strong>启用会向自配模型发送简短提示的功能，它不会离开你的设备：</p>
+<p>以下数据通过 Chrome <code>storage</code> API 或本地 IndexedDB 持久化在你的设备上。“本地持久化”并不代表绝不传输：执行任务时，相关 prompt、页面数据、工具结果、记忆提示或定时任务内容可能按第 4 节所述直接发送到你配置的模型端点。</p>
 <table>
 <thead><tr><th>数据</th><th>存储位置</th><th>生命周期</th></tr></thead>
 <tbody>
@@ -61,10 +65,14 @@
 <tr><td>你录制的教学案例</td><td><code>chrome.storage.local</code></td><td>直到你删除</td></tr>
 <tr><td>已导入的 Skill</td><td><code>chrome.storage.local</code></td><td>直到你移除</td></tr>
 <tr><td>执行记忆记录</td><td>本地 IndexedDB</td><td>默认关闭；直到你清空、卸载，或本地软上限自动裁剪</td></tr>
-<tr><td>当前对话、计划状态、最近任务历史</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr>
+<tr><td>最近首轮任务 prompt（最多 20 条）</td><td><code>chrome.storage.local</code></td><td>默认开启；直到你清除或卸载。可在 Settings → Lab 关闭未来记录</td></tr>
+<tr><td>运行历史（最多 50 条、每条 120 个事件）与任务队列（最多 25 项）</td><td><code>chrome.storage.local</code></td><td>已结束运行会保留到你清理、本地上限裁剪或卸载；队列项会在执行或取消后移除</td></tr>
+<tr><td>定时任务定义、prompt 与结果元数据</td><td><code>chrome.storage.local</code></td><td>直到你删除该定时任务或卸载</td></tr>
+<tr><td>当前对话与计划状态</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr>
 <tr><td>页面快照、截图、视觉问答缓存</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空，受 LRU 上限约束</td></tr>
 <tr><td>当前会话内的审批 / 审计决策</td><td><code>chrome.storage.session</code></td><td>浏览器关闭即清空</td></tr>
-</tbody></table>
+</tbody>
+</table>
 <p>卸载扩展会清除以上全部数据。</p>
 <h2>4. 发送给第三方（你配置的模型提供商）的数据</h2>
 <p>当你提交任务时，TabCtrl 会<strong>直接</strong>从你的浏览器向你在 <strong>Settings → Models</strong> 中配置的模型端点发起 HTTPS 请求。根据任务不同，请求可能包含：</p>
@@ -76,6 +84,7 @@
 <li>当前任务内的对话历史以及 TabCtrl 生成的上下文摘要；</li>
 <li>简短执行记忆提示（仅当你在 Settings → Lab 启用执行记忆时）；</li>
 <li>工具调用结果；</li>
+<li>定时任务触发时保存的 prompt、可选起始 URL、相关页面内容和工具结果；</li>
 <li>你的 API Key（通过该模型提供商规定的标准 <code>Authorization</code> 头部携带）。</li>
 </ul>
 <p>这些请求会发往<strong>你自己配置</strong>的端点，常见示例包括：</p>
@@ -94,35 +103,41 @@
 <tbody>
 <tr><td><code>&lt;all_urls&gt;</code> 主机权限、<code>activeTab</code>、<code>scripting</code></td><td>读取并操作你正在处理的页面，包括跨 frame</td></tr>
 <tr><td><code>tabs</code>、<code>tabGroups</code>、<code>webNavigation</code></td><td>多步骤任务中的标签页管理与导航；执行协议与 URL 校验</td></tr>
+<tr><td><code>declarativeNetRequest</code></td><td>在任务标签页的主 frame / 子 frame 请求发出前阻断，只精确放行已批准的 GET URL</td></tr>
 <tr><td><code>storage</code>、<code>unlimitedStorage</code></td><td>在本机持久化设置、模型、Skill、教学案例与会话状态</td></tr>
 <tr><td><code>sidePanel</code></td><td>提供侧边栏 UI</td></tr>
-<tr><td><code>alarms</code></td><td>长任务期间维持 Service Worker 存活</td></tr>
-<tr><td><code>notifications</code></td><td>长任务完成时通知</td></tr>
+<tr><td><code>alarms</code></td><td>长任务期间维持 Service Worker 存活，并触发你创建的定时任务</td></tr>
+<tr><td><code>notifications</code></td><td>任务完成时通知，或触发你创建的通知类定时任务</td></tr>
 <tr><td><code>offscreen</code></td><td>播放提示音</td></tr>
-<tr><td><code>debugger</code></td><td>在普通脚本无法精确触达的页面（复杂编辑器、OS 级事件等）执行精确元素操作</td></tr>
+<tr><td><code>debugger</code></td><td>在普通脚本无法精确触达的页面执行精确元素操作；在无人值守任务标签页中拒绝响应触发的文件下载</td></tr>
 <tr><td><code>nativeMessaging</code></td><td>可选；仅在你显式启用实验室 Beta 并安装本机桥接后用于调用白名单内的本地 CLI</td></tr>
-</tbody></table>
-<p><code>&lt;all_urls&gt;</code> 与 <code>debugger</code> 是较强的能力。TabCtrl 只在你于侧边栏发起代理任务时使用它们；不会在后台主动读取你未要求处理的页面。</p>
+</tbody>
+</table>
+<p><code>&lt;all_urls&gt;</code> 与 <code>debugger</code> 是较强的能力。TabCtrl 只会用于你在侧边栏发起的任务，或你明确创建并启用的定时任务；不会检查无关标签页或浏览历史。</p>
 <h2>6. Native Messaging（可选，默认禁用）</h2>
 <p>实验室 Beta <strong>默认关闭</strong>。仅当你启用并安装本机消息主机后，TabCtrl 才可调用你已加入 <code>bridge.config.json</code> 白名单的本地命令行工具。约束如下：</p>
 <ul>
 <li>仅接受本地 <code>bridge.config.json</code> 白名单中明确列出的命令名称；</li>
 <li>每条命令对应的可执行文件路径必须与配置精确匹配；</li>
 <li>代理无法注入环境变量、指定工作目录或执行任意 shell 命令；</li>
-<li>每次本地调用都需在扩展中获得你的批准；</li>
-<li>所有输出仅留在你的本机，开发方无法看到。</li>
+<li><code>ping</code>、<code>which</code>、<code>diagnose</code> 诊断调用不会弹出审批；你加入“免审批命令”列表的非破坏性命令也可能跳过交互确认。有人值守时，破坏性本地调用始终询问；无人值守定时任务会拒绝本机桥接调用；</li>
+<li>本机输出由扩展在本地处理，并可能随下一轮请求发送给你配置的模型，以便继续任务；TabCtrl 开发方无法看到。</li>
 </ul>
-<p>卸载扩展或关闭实验室 Beta 即停止所有本机消息活动。</p>
-<h2>7. 敏感与受限站点</h2>
+<p>卸载扩展或关闭实验室 Beta 即停止所有本机消息活动。即使 TabCtrl 跳过交互确认，本机消息主机仍会独立执行自己的命令白名单。</p>
+<h2>7. 定时任务与后台活动</h2>
+<p>你创建并启用定时任务后，只要浏览器仍在运行，即使侧边栏已关闭，TabCtrl 也可能在后台执行。扩展会打开任务标签页，把保存的 prompt 以及相关页面/工具上下文直接发送给你配置的模型提供商，并在任务结束后关闭该标签页。</p>
+<p>定时任务运行时没有用户可响应审批。因此，无人值守浏览只允许 HTTPS，目标主机名必须逐条精确列入“可操作域名”；留空或通配符不授权。只有只读观察、滚动、标签切换和复核后的 GET 导航可自动执行，链接由扩展直接打开而不会派发网页 DOM 点击事件。输入、按键、按钮、表单、下载、疑似破坏性的 URL、本机桥接调用以及硬阻止或敏感站点上的动作都会被拒绝。未显式提供非空 <code>done(summary)</code>、发生策略拒绝或导航失败的运行会记为失败。你可以在 <strong>Settings → Schedules</strong> 中禁用或删除定时任务。</p>
+<p>图片导出对 DNS 重绑定采取失败闭合策略：主机名 URL 只允许序列化页面已加载图片的像素，不会再次主动请求；网络回退只允许公网 IPv4 字面量。单图上限 2 MB、单任务 4 MB、单次画布最多 200 万源像素、单页累计导出工作最多 400 万像素，并对压缩与编码设置超时。</p>
+<h2>8. 敏感与受限站点</h2>
 <p>无论用户如何配置，TabCtrl 都会执行以下硬性约束：</p>
 <ul>
 <li><strong>完全屏蔽</strong>：身份提供方登录页，例如 <code>accounts.google.com</code>、<code>login.microsoftonline.com</code>、<code>login.live.com</code>、<code>appleid.apple.com</code>；代理不会读取或操作这些页面；</li>
 <li><strong>每次操作强制审批</strong>：主流支付、银行、券商、加密货币交易所等域名；</li>
 <li><strong>直接拒绝</strong>：所有非 <code>http/https</code> 的 URL（<code>javascript:</code>、<code>data:</code>、<code>blob:</code>、<code>file:</code>、<code>chrome:</code>、<code>chrome-extension:</code>、<code>about:</code> 等）。</li>
 </ul>
-<h2>8. 儿童</h2>
+<h2>9. 儿童</h2>
 <p>TabCtrl 不面向 13 岁以下儿童，也不会有意收集儿童数据。</p>
-<h2>9. 安全</h2>
+<h2>10. 安全</h2>
 <ul>
 <li>API Key 与其他设置通过 Chrome 扩展存储保存，与你的浏览器配置享有相同的隔离机制；</li>
 <li>扩展自身页面遵循严格的 CSP，禁止远程脚本加载与 <code>unsafe-eval</code> / <code>unsafe-inline</code>；</li>
@@ -130,16 +145,20 @@
 <li>除你配置的模型端点外，扩展不会将你的 API Key 发送给任何其他方。</li>
 </ul>
 <p>你需要自行保护本机设备及其上保存的 API Key。如怀疑 Key 已泄露，请通过对应模型提供商的控制台轮换 Key。</p>
-<h2>10. 你的选择</h2>
+<h2>11. 你的选择</h2>
 <ul>
 <li><strong>停止向某个提供商发送数据</strong>：在 Settings → Models 中移除或禁用对应模型配置；</li>
 <li><strong>删除当前对话</strong>：在侧边栏新建对话，会话级数据将被清空；</li>
+<li><strong>停止记录未来最近任务</strong>：在 Settings → Lab 关闭任务 prompt 历史；</li>
+<li><strong>删除最近任务 prompt</strong>：在侧边栏“最近任务 → 清除”，或在 Settings → Lab 点击“清除最近任务”；</li>
+<li><strong>删除已结束的运行历史或排队任务</strong>：在侧边栏运行中心使用“清理已结束”或单项“取消”；</li>
+<li><strong>停止定时任务</strong>：在 Settings → Schedules 中禁用或删除；</li>
 <li><strong>删除教学案例或 Skill</strong>：在 Settings 中移除；</li>
 <li><strong>彻底清除</strong>：卸载扩展，Chrome 将自动清除所有本地数据。</li>
 </ul>
-<h2>11. 政策变更</h2>
+<h2>12. 政策变更</h2>
 <p>如本政策发生重要变更，更新版本会发布在 Chrome 网上应用店列表所引用的同一 URL，并更新顶部的&quot;最后更新&quot;日期。</p>
-<h2>12. 联系方式</h2>
+<h2>13. 联系方式</h2>
 <p>如有与 TabCtrl 相关的隐私问题，可发送邮件至 <strong>dyyxml@gmail.com</strong> 联系开发方，或在项目仓库中提交 issue。</p>
     </article>
   </main>
